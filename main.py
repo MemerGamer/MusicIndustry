@@ -1,4 +1,5 @@
 from tkinter import *
+import pandas as pd
 import cx_Oracle
 from sqlalchemy.engine import create_engine
 import os
@@ -27,11 +28,13 @@ def makeConnection():
         echo=True
     )
 
-    result = engine.execute('select * from global_name')
+    # test_df = pd.read_sql_query('SELECT * FROM global_name', engine)
+    # print(test_df)
+    # result = engine.execute('select * from global_name')
 
-    for row in result:
-        print
-        row
+    # for row in result:
+    #     print
+    #     row
 
 
 
@@ -63,7 +66,7 @@ if __name__ == "__main__":
     makeConnection()
 
     # take the data
-    lst = getData()
+    #lst = getData()
 
     # find total number of rows and
     # columns in list
