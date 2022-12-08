@@ -1,16 +1,78 @@
-# This is a sample Python script.
+from tkinter import *
+import cx_Oracle
+from sqlalchemy.engine import create_engine
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def makeConnection():
+    host = os.getenv("DB_HOST")
+    port = os.getenv("DB_PORT")
+    sid = os.getenv("DB_SID")
+    user = os.getenv("DB_USER")
+    password = os.getenv("DB_PASSWORD")
+    sid = cx_Oracle.makedsn(host, port, sid=sid)
+
+    cstr = 'oracle://{user}:{password}@{sid}'.format(
+        user=user,
+        password=password,
+        sid=sid
+    )
+
+    engine = create_engine(
+        cstr,
+        convert_unicode=False,
+        pool_recycle=10,
+        pool_size=50,
+        echo=True
+    )
+
+    result = engine.execute('select * from global_name')
+
+    for row in result:
+        print
+        row
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+8 to toggle the breakpoint.
+
+def getData():
+    lst = [(1, 'Raj', 'Mumbai', 19),
+           (2, 'Aaryan', 'Pune', 18),
+           (3, 'Vaishnavi', 'Mumbai', 20),
+           (4, 'Rachna', 'Mumbai', 21),
+           (5, 'Shubham', 'Delhi', 21)]
+
+    return lst
+
+class Table:
+    def __init__(self, root):
+        # code for creating table
+        for i in range(total_rows):
+            for j in range(total_columns):
+                self.e = Entry(root, width=20, fg='#b3b3b3', bg='#3a3b3c',
+                               font=('Arial', 16, 'bold'))
+
+                self.e.grid(row=i, column=j)
+                self.e.insert(END, lst[i][j])
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+if __name__ == "__main__":
+    #create connection
+    makeConnection()
+
+    # take the data
+    lst = getData()
+
+    # find total number of rows and
+    # columns in list
+    total_rows = len(lst)
+    total_columns = len(lst[0])
+
+    # create root window
+    root = Tk()
+    root.geometry("300x400")
+    root.config(bg="#282828")
+    t = Table(root)
+    root.mainloop()
