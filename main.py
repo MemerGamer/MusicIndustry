@@ -27,9 +27,10 @@ def makeConnection():
         pool_size=50,
         echo=True
     )
+    test_df = pd.read_sql_query('SELECT * FROM global_name', engine)
+    
+    print(test_df)
 
-    # test_df = pd.read_sql_query('SELECT * FROM global_name', engine)
-    # print(test_df)
     # result = engine.execute('select * from global_name')
 
     # for row in result:
@@ -66,7 +67,7 @@ if __name__ == "__main__":
     makeConnection()
 
     # take the data
-    #lst = getData()
+    lst = getData()
 
     # find total number of rows and
     # columns in list
