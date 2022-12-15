@@ -1,0 +1,7 @@
+tkinter
+customtkinter
+pandas
+cx_Oracle
+sqlalchemy
+os
+dotenv
