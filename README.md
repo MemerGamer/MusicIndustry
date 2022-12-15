@@ -6,3 +6,7 @@ MusicIndustry project for Database class
 pip install -r requirements.txt
 ```
 Installs all the required packages.
+
+## UML
+
+![UML](https://github.com/MemerGamer/MusicIndustry/blob/main/assets/img/UML.jpg?raw=true) 
