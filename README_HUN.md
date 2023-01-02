@@ -1,8 +1,17 @@
 # Zeneipar Projekt
-Egyéb nyelvek:
+
+Zeneipar projekt az Adatbázis I. tantárgyhoz
+
+## Tartalomjegyzék
+1. [Egyéb nyelvek](#egyéb-nyelvek)
+2. [Leírás](#leírás)
+3. [Telepítés](#telepítés)
+4. [UML](#uml-az-adatbázisról)
+5. [ERM](#erm-az-adatbázisról)
+
+## Egyéb nyelvek:
 [EN](https://github.com/MemerGamer/MusicIndustry/blob/main/README.md)
 
-Zeneiipar projekt az Adatbázis I. tantárgyhoz
 
 ## Leírás
 

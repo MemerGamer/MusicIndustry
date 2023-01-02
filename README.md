@@ -1,8 +1,16 @@
-# MusicIndustry
-Other languages:
-[HU](https://github.com/MemerGamer/MusicIndustry/blob/main/README_HUN.md)
+# Music Industry
 
-MusicIndustry project for Database I. class
+Music industry project for Database I. class
+
+## Table of contents
+1. [Other languages](#other-languages)
+2. [Description](#description)
+3. [Installation](#installation)
+4. [UML](#uml-of-the-database)
+5. [ERM](#erm-of-the-database)
+
+## Other languages:
+[HU](https://github.com/MemerGamer/MusicIndustry/blob/main/README_HUN.md)
 
 ## Description
 
