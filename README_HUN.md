@@ -8,7 +8,9 @@ Zeneiipar projekt az Adatbázis I. tantárgyhoz
 
 Ez a projekt a zenei ipar modellezésére készült az ORACLE SQL adatbáziskezelő nyelvben.
 
-A zenei ipar sokféle résztvevőt foglal magában, beleértve a zenészeket, a lemezkiadókat, a kiadókat és a producerokat, így ez a téma nagyon összetett.
+A zenei ipar sokféle résztvevőt foglal magában, beleértve a zenészeket, a lemezkiadókat, és a producereket, így ez a téma nagyon összetett.
+
+Ennek a projektnek a célja, hogy az iparág összes, sokféle részét egy egységes egésszé fűzze össze.
 
 ## Telepítés
 ```console
