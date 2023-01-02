@@ -1,6 +1,5 @@
-# MusicIndustry
-:hu:
-
+# Zeneipar Projekt
+:us:
 MusicIndustry project for Database I. class
 
 ## History
