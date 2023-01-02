@@ -1,5 +1,7 @@
 # Zeneipar Projekt
-:us:
+Egyéb nyelvek:
+[EN](https://github.com/MemerGamer/MusicIndustry/blob/main/README.md)
+
 MusicIndustry project for Database I. class
 
 ## History

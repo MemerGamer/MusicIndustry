@@ -1,5 +1,6 @@
 # MusicIndustry
-:hu:
+Other languages:
+[HU](https://github.com/MemerGamer/MusicIndustry/blob/main/README_HUN.md)
 
 MusicIndustry project for Database I. class
 
