@@ -2,22 +2,24 @@
 Egyéb nyelvek:
 [EN](https://github.com/MemerGamer/MusicIndustry/blob/main/README.md)
 
-MusicIndustry project for Database I. class
+Zeneiipar projekt az Adatbázis I. tantárgyhoz
 
-## History
+## Leírás
 
-This project was created for modelling the music industry in an ORACLE SQL database.
+Ez a projekt a zenei ipar modellezésére készült az ORACLE SQL adatbáziskezelő nyelvben.
 
-## Installation
+A zenei ipar sokféle résztvevőt foglal magában, beleértve a zenészeket, a lemezkiadókat, a kiadókat és a producerokat, így ez a téma nagyon összetett.
+
+## Telepítés
 ```console
 pip install -r requirements.txt
 ```
-Installs all the required packages.
+Telepíti az összes szükséges csomagot.
 
-## UML of the Database
+## UML az adatbázisról
 
 ![UML](https://github.com/MemerGamer/MusicIndustry/blob/main/assets/img/UML.jpg?raw=true) 
 
-## ERM of the Database
+## ERM az adatbázisról
 
 ![ERM](https://github.com/MemerGamer/MusicIndustry/blob/main/assets/img/ERM-HUN.jpg?raw=true) 

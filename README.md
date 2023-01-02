@@ -4,9 +4,11 @@ Other languages:
 
 MusicIndustry project for Database I. class
 
-## History
+## Description
 
 This project was created for modelling the music industry in an ORACLE SQL database.
+
+With various sorts of stakeholders, including musicians, record companies, publishers, producers the music industry is a very complex topic.
 
 ## Installation
 ```console
