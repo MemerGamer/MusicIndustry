@@ -16,4 +16,7 @@ WHERE PUBLISHER_ID  in (
 		WHERE PRODUCER_ID = (
 		SELECT PRODUCER_ID  FROM PRODUCERS 
 		WHERE PRODUCER_NAME LIKE 'Kanye West'));
-		
+	
+-- 3. How many songs are named after christmas?
+SELECT COUNT(*) "Nr. of music about Christmas" FROM MUSICS
+WHERE MUSIC_NAME LIKE '%hristmas%';	
