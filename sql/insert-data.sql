@@ -85,7 +85,8 @@ COMMIT;
 SELECT * FROM ARTISTS
 ORDER BY ARTIST_ID ;
 
-SELECT artists_seq.currval FROM dual;
+
+SELECT artists_seq.nextval FROM dual;
 ALTER SEQUENCE artists_seq RESTART START WITH 100;
 COMMIT;
 
