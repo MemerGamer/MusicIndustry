@@ -7,16 +7,16 @@
 - [x] <s> Create utasítások (nem generálva) </s>
 - [ ] Insert utasítások (minden táblába 10 sor valós adat, többit lehet generálni)
 - [ ] 20 db lekérdezés (fogja át az egész tananyagot, Reguláris Kif, Modern SQL)
-
-:exclamation:
-
-<s>
-- [ ] Explain plan 5 lekérdezésről - ez nem kell!
-</s>
-
-:exclamation:
-
 - [~] Az egész projekt NEVprojekt.sql-ben
 - [ ] Az egész projektet áttenni egy másik ABKR-be
 - [~] Vizuális felületet készíteni (amennyit tanulunk róla)
 - [x] <s> JSON </s>
+
+    :exclamation:
+
+    <s>
+    
+    - [ ] Explain plan 5 lekérdezésről - ez nem kell!
+    
+    </s>
+    :exclamation:
