@@ -12,11 +12,14 @@ def button_click_event():
     table_name = table_name.lower()
     table_name = table_name.replace(" ","")
 
+    # manager.main(table_name)
+    
     try:
         manager.main(table_name)
     except:
         print("Invalid query")
         tkinter.messagebox.showerror("showerror", "Invalid table name!")
+    
 
 if __name__ == "__main__":
     # create root window
@@ -25,6 +28,6 @@ if __name__ == "__main__":
     root = customtkinter.CTk()
     root.geometry("300x400")
     #root.config(bg="#282828")
-    button = customtkinter.CTkButton(root, text="Open Dialog", command=button_click_event)
+    button = customtkinter.CTkButton(root, text="View Table", command=button_click_event)
     button.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
     root.mainloop()

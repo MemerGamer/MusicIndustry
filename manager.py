@@ -79,6 +79,20 @@ def createBtn():
     rawquery=focused_row["values"]
     curr_id=rawquery[0]
     print(curr_id)
+    create_window = customtkinter.CTk()
+    textboxes = []
+    input_fields = []
+    it = 0
+    for colname in cols:
+        textboxes.append(customtkinter.CTkTextbox(create_window))
+        textboxes[it].grid(row=it, column=0)
+        textboxes[it].insert("0.0", colname+":")
+        textboxes[it].configure(state="disabled")
+        input_fields.append(customtkinter.CTkEntry(master=window, placeholder_text="Type here...", width=320))
+        input_fields[it].pack(side="top", padx=5, pady=5)
+        it = it + 1
+    
+    create_window.mainloop()
 
     window.destroy()
     main(table_name)
@@ -157,9 +171,7 @@ def main(arg):
 
     treeview.bind("<<TreeviewSelect>>", on_select)
 
-
     treeview.pack(side="top", fill="both", expand=True, padx=5, pady=5)
-
     
     for i in cols:
         treeview.heading(i, text=i)
