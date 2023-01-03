@@ -4,6 +4,7 @@ from tkinter import ttk
 import customtkinter
 import cx_Oracle
 import os
+import re
 import sys
 from dotenv import load_dotenv
 load_dotenv()
@@ -17,6 +18,13 @@ password = os.getenv("DB_PASSWORD")
 dsn=host+":"+port+"/"+sid
 
 connection = ""
+treeview = ""
+input_field = ""
+focused_row = ""
+colnr=0
+window=""
+table_name=""
+cols=""
 
 # Connect to the database
 def connect_to_db(username, password, dsn):
@@ -33,6 +41,16 @@ def execute_query(connection, query):
     cursor.execute(query)
     result = cursor.fetchall()
     return result
+
+def execute_delete(connection, query):
+    try:
+        with connection.cursor() as cursor:
+                # execute the insert statement
+                cursor.execute(query)
+                # commit the change
+                connection.commit()
+    except cx_Oracle.Error as error:
+        print(error)
 
 def select_col_names(table_name):
     table_name=table_name.upper()
@@ -55,9 +73,62 @@ def show_records(table_name):
 
     #result_label.config(text=result)
 
+
+def createBtn():
+    print("Creating row...")
+    rawquery=focused_row["values"]
+    curr_id=rawquery[0]
+    print(curr_id)
+
+    window.destroy()
+    main(table_name)
+
+def updateBtn():
+    print("Updating row...")
+    rawquery=focused_row["values"]
+    curr_id=rawquery[0]
+    print()
+
+def deleteBtn():
+    rawquery=focused_row["values"]
+    curr_id=rawquery[0]
+    currTable1ColName=cols[0]
+    local_table_name = table_name.upper()
+    
+    print(f"Deleting row with id:{curr_id} at {currTable1ColName} from {local_table_name} ")
+    query=f"DELETE FROM {local_table_name} WHERE {currTable1ColName} = {curr_id}"
+    execute_delete(connection,query)
+    print("Deletion complete!")
+    
+    window.destroy()
+    main(local_table_name)
+
+def on_select(event):
+    global focused_row
+
+    # Get the selected item
+    item = treeview.focus()
+
+    focused_row = treeview.item(item)
+
+    # Get the data from the selected item
+    data = treeview.item(item)["values"]
+
+    # Set the data as the value of the input field
+    input_field.delete(0, "end")
+    input_field.insert(0, data)
+
 def main(arg):
+    global table_name
+    print("Main window started!")
     table_name = arg
     global connection
+    global treeview
+    global input_field
+    global colnr
+    global window
+    global cols
+
     # Establish a connection to the database
     connection = connect_to_db(user, password,dsn)
     
@@ -65,11 +136,13 @@ def main(arg):
     res_data=show_records(table_name)
     
     cols=[]
+    colnr = 0
     for i in res_col_names:
         ccolname=""
         for j in i:
             ccolname=ccolname + j
         cols.append(ccolname)
+        colnr = colnr + 1
 
     customtkinter.set_appearance_mode("dark")  # Modes: system (default), light, dark
     customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
@@ -79,15 +152,18 @@ def main(arg):
     
     treeview = ttk.Treeview(window, columns=cols)
 
-
-
     treeview.column("#0", width=0,stretch = "no")
-    treeview.pack(side="top", fill="x")
-    #treeview.grid(row=0, column=0, rowspan=3, columnspan=1, sticky="nsew")
+    treeview.columnconfigure(0, weight=1)
+
+    treeview.bind("<<TreeviewSelect>>", on_select)
+
+
+    treeview.pack(side="top", fill="both", expand=True, padx=5, pady=5)
+
     
     for i in cols:
         treeview.heading(i, text=i)
-        treeview.column(i, minwidth=0, width=100, stretch=tk.NO)
+        treeview.column(i, minwidth=0, width=100, )
     
     # Iterate through the array of arrays
     for i, row in enumerate(res_data):
@@ -99,6 +175,23 @@ def main(arg):
 
     # Configure the style of the "even" rows
     treeview.tag_configure("even", background="#ffffff")
+
+
+    # Create an input field
+    input_field = customtkinter.CTkEntry(master=window, placeholder_text="Type here...", width=420)
+
+    # Pack the input field
+    input_field.pack(side="top", padx=5, pady=5)
+
+    # Create three buttons
+    button1 = customtkinter.CTkButton(master=window, text="Create", command=createBtn)
+    button2 = customtkinter.CTkButton(master=window, text="Update", command=updateBtn)
+    button3 = customtkinter.CTkButton(master=window, text="Delete", command=deleteBtn)
+
+    # Pack the buttons
+    button1.pack(side="top", padx=5, pady=5)
+    button2.pack(side="top", padx=5, pady=5)
+    button3.pack(side="top", padx=5, pady=5)
 
     window.mainloop()
 
