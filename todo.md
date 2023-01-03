@@ -12,9 +12,7 @@
 - [~] Vizuális felületet készíteni (amennyit tanulunk róla)
 - [x] <s> JSON </s>
 
+:exclamation:
 <s>
-
-    - [ ] Explain plan 5 lekérdezésről - ez nem kell!
-    :exclamation:
-    
+    - [ ] Explain plan 5 lekérdezésről - ez nem kell! 
 </s>
