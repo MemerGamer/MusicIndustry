@@ -20,3 +20,26 @@ WHERE PUBLISHER_ID  in (
 -- 3. How many songs are named after christmas?
 SELECT COUNT(*) "Nr. of music about Christmas" FROM MUSICS
 WHERE MUSIC_NAME LIKE '%hristmas%';	
+
+--4. What is the 3 most newest music int the database?
+SELECT MUSIC_ID, MUSIC_NAME, MUSIC_RELEASE_DATE FROM MUSICS
+ORDER BY MUSIC_RELEASE_DATE  DESC
+FETCH FIRST 3 ROW ONLY ;
+
+--5. Which artists are playing more than two instruments?
+WITH temp AS (SELECT ARTIST_ID AS ai, COUNT(INSTRUMENT_ID) instr FROM PLAYS
+GROUP BY ARTIST_ID
+ORDER BY instr DESC
+FETCH FIRST 1 ROW ONLY)
+SELECT A.ARTIST_NAME 
+FROM ARTISTS A, temp
+WHERE A.ARTIST_ID = temp.ai;
+
+--6. Billboard Artist Award Winners
+SELECT LISTAGG(ARTIST_NAME, '; ') "Billboard Artist Winners"  FROM ARTISTS
+WHERE ARTIST_ID IN (
+WITH bbas AS (SELECT AWARD_ID FROM AWARDS
+WHERE AWARD_NAME LIKE '%Billboard%')
+SELECT a.ARTIST_ID FROM bbas, ARTISTSAWARDED a
+WHERE a.AWARD_ID IN bbas.AWARD_ID
+GROUP BY a.ARTIST_ID );
