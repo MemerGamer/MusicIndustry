@@ -12,10 +12,10 @@ Music industry project for Database I. class
 5. [MySQL](./mysql/README.md)
 6. [UML](#uml-of-the-database)
 7. [ERM](#erm-of-the-database)
-8. [Todo lists and Comments](./todo.md)
+8. [Todo lists and Comments](./docs/todo.md)
 
 ## Other languages:
-[HU](https://github.com/MemerGamer/MusicIndustry/blob/main/README_HUN.md)
+[HU](https://github.com/MemerGamer/MusicIndustry/blob/main/docs/README_HUN.md)
 
 ## Description
 
