@@ -7,7 +7,7 @@ Music industry project for Database I. class
 2. [Description](#description)
 3. [Installation](#installation)
 4. [OracleSQL](./sql/README.md)
-    - [Data fetching](./fetching-data/REAMDE.md)
+    - [Data fetching](./fetching-data/README.md)
     - [Mass Data Insertions](./mass-insert-data/README.md)
 5. [MySQL](./mysql/README.md)
 6. [UML](#uml-of-the-database)
