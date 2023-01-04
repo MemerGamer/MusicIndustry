@@ -11,7 +11,7 @@
 - [~] Az egész projekt NEVprojekt.sql-ben
     - Megjegyzés: A projekt több .sql fileban található meg, ez látható a github repositoryban is.
 - [~] Az egész projektet áttenni egy másik ABKR-be
-    - Megjegyzés: Mind a 27 tábla át lett irve MySQL (MariaDB) adatbázis kezelő rendszerbe, viszont az adatokat még nem sikerült átvinni.
+    - Megjegyzés: Mind a 27 tábla át lett írva MySQL (MariaDB) adatbázis kezelő rendszerbe, viszont az adatokat még nem sikerült átvinni.
 - [~] Vizuális felületet készíteni (amennyit tanulunk róla)
     - Megjegyzés: A vizuális felületet komplikációk miatt pythonban sikerült csak megoldani, és ez részlegesen működik (create, update sajnos még nem működik) viszont ami jelenleg működik az univerzálisan működik bármely táblára a 27 tábla közül.
 - [x] <s> JSON </s>
