@@ -8,6 +8,7 @@ Zeneipar projekt az Adatbázis I. tantárgyhoz
 3. [Telepítés](#telepítés)
 4. [UML](#uml-az-adatbázisról)
 5. [ERM](#erm-az-adatbázisról)
+6. [Teendő Lista és Megjegyzések](./todo.md)
 
 ## Egyéb nyelvek:
 [EN](https://github.com/MemerGamer/MusicIndustry/blob/main/README.md)
