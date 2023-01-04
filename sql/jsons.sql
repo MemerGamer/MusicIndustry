@@ -1,0 +1,11 @@
+-- CREATE TABLES SQL
+-- Kovács Bálit-Hunor
+-- Informatika II. D
+
+-- TOTAL TABLES: 27
+
+-- JSON for MUSICS TABLE
+select JSON_OBJECT('MUSIC_ID' is MUSIC_ID , 'MUSIC_NAME' is MUSIC_NAME) from MUSICS;
+
+-- JSON for ARTISTS TABLE
+select JSON_OBJECT('ID' is ARTIST_ID , 'NAME' is ARTIST_NAME) from ARTISTS;
