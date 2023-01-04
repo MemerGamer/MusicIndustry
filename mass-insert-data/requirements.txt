@@ -1,0 +1,5 @@
+cx_Oracle
+sqlalchemy
+os
+dotenv
+time
