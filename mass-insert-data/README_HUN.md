@@ -1,6 +1,6 @@
 # Tömeges adatbevitel
 
-## Követelémnyek
+## Követelmények
 
 A python script további csomagokat fog igényelni
 

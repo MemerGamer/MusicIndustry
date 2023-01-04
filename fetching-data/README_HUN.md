@@ -1,4 +1,4 @@
-# Adatlekérdezés
+# Adat lekérdezés
 A `fetch.py` parancsfájl le fogja kérni a billboard 100 zenei listáját.
 A kimenet így mentődik el:
     - `top100_artist.txt` ez tartalmazni fogja az előadók listáját
