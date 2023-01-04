@@ -6,9 +6,13 @@ Zeneipar projekt az Adatbázis I. tantárgyhoz
 1. [Egyéb nyelvek](#egyéb-nyelvek)
 2. [Leírás](#leírás)
 3. [Telepítés](#telepítés)
-4. [UML](#uml-az-adatbázisról)
-5. [ERM](#erm-az-adatbázisról)
-6. [Teendő Lista és Megjegyzések](./todo.md)
+4. [OracleSQL (Angol)](./sql/README.md)
+    - [Adat szerzés (Angol)](./fetching-data/REAMDE.md)
+    - [Nagy mennyiségű adatbevitel (Angol)](./mass-insert-data/README.md)
+5. [MySQL (Angol)](./mysql/README.md)
+6. [UML](#uml-az-adatbázisról)
+7. [ERM](#erm-az-adatbázisról)
+8. [Teendő Lista és Megjegyzések](./todo_hun.md)
 
 ## Egyéb nyelvek:
 [EN](https://github.com/MemerGamer/MusicIndustry/blob/main/README.md)

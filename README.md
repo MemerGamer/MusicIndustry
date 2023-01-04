@@ -10,8 +10,9 @@ Music industry project for Database I. class
     - [Data fetching](./fetching-data/REAMDE.md)
     - [Mass Data Insertions](./mass-insert-data/README.md)
 5. [MySQL](./mysql/README.md)
-4. [UML](#uml-of-the-database)
-5. [ERM](#erm-of-the-database)
+6. [UML](#uml-of-the-database)
+7. [ERM](#erm-of-the-database)
+8. [Todo lists and Comments](./todo.md)
 
 ## Other languages:
 [HU](https://github.com/MemerGamer/MusicIndustry/blob/main/README_HUN.md)
