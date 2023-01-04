@@ -21,12 +21,12 @@ WHERE PUBLISHER_ID  in (
 SELECT COUNT(*) "Nr. of music about Christmas" FROM MUSICS
 WHERE MUSIC_NAME LIKE '%hristmas%';	
 
---4. What is the 3 most newest music int the database?
+-- 4. What is the 3 most newest music int the database?
 SELECT MUSIC_ID, MUSIC_NAME, MUSIC_RELEASE_DATE FROM MUSICS
 ORDER BY MUSIC_RELEASE_DATE  DESC
 FETCH FIRST 3 ROW ONLY ;
 
---5. Which artists are playing more than two instruments?
+-- 5. Which artists are playing more than two instruments?
 WITH temp AS (SELECT ARTIST_ID AS ai, COUNT(INSTRUMENT_ID) instr FROM PLAYS
 GROUP BY ARTIST_ID
 ORDER BY instr DESC
@@ -35,7 +35,7 @@ SELECT A.ARTIST_NAME
 FROM ARTISTS A, temp
 WHERE A.ARTIST_ID = temp.ai;
 
---6. Billboard Artist Award Winners
+-- 6. Billboard Artist Award Winners
 SELECT LISTAGG(ARTIST_NAME, '; ') "Billboard Artist Winners"  FROM ARTISTS
 WHERE ARTIST_ID IN (
 WITH bbas AS (SELECT AWARD_ID FROM AWARDS
@@ -44,9 +44,33 @@ SELECT a.ARTIST_ID FROM bbas, ARTISTSAWARDED a
 WHERE a.AWARD_ID IN bbas.AWARD_ID
 GROUP BY a.ARTIST_ID );
 
---7. Muisics from a year before
+-- 7. Muisics from a year before
 SELECT MUSIC_NAME, MUSIC_RELEASE_DATE FROM
 MUSICS
 WHERE  EXTRACT( YEAR FROM MUSIC_RELEASE_DATE ) >  EXTRACT( YEAR FROM SYSDATE ) - 2
 AND EXTRACT( YEAR FROM MUSIC_RELEASE_DATE ) < EXTRACT( YEAR FROM SYSDATE )
 ORDER BY MUSIC_RELEASE_DATE;
+
+-- 8. The names of all artists who have won awards
+SELECT ARTIST_NAME FROM ARTISTS a
+JOIN ARTISTSAWARDED aa ON aa.ARTIST_ID = a.ARTIST_ID
+JOIN AWARDS aw ON aw.AWARD_ID = aa.AWARD_ID
+GROUP BY ARTIST_NAME;
+
+-- 9. The names of all artists who can play both the Guitar and Drums, but cannot sing
+SELECT a.ARTIST_NAME, i.INSTRUMENT_NAME
+FROM ARTISTS a
+JOIN PLAYS p ON p.ARTIST_ID = a.ARTIST_ID
+JOIN INSTRUMENTS i ON i.INSTRUMENT_ID = p.INSTRUMENT_ID
+WHERE EXISTS (
+  SELECT 1 FROM PLAYS p2
+  JOIN INSTRUMENTS i2 ON i2.INSTRUMENT_ID = p2.INSTRUMENT_ID
+  WHERE p2.ARTIST_ID = a.ARTIST_ID
+  AND i2.INSTRUMENT_NAME IN ('Acoustic Guitar', 'Drum')
+)
+AND NOT EXISTS (
+  SELECT 1 FROM PLAYS p3
+  JOIN INSTRUMENTS i3 ON i3.INSTRUMENT_ID = p3.INSTRUMENT_ID
+  WHERE p3.ARTIST_ID = a.ARTIST_ID
+  AND i3.INSTRUMENT_NAME = 'Vocal'
+);
